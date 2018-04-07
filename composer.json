@@ -1,6 +1,7 @@
 {
-  "name": "morganestes/am-challenge-three",
+  "name": "morganestes/system-report",
   "description": "WordPress plugin for displaying system info.",
+  "type": "wordpress-plugin",
   "minimum-stability": "dev",
   "prefer-stable": true,
   "license": "GPL-3.0",

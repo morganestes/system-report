@@ -9,18 +9,18 @@ module.exports = function( grunt ) {
 
 		addtextdomain: {
 			options: {
-				textdomain: 'am-challenge-three',
+				textdomain: 'system-report',
 			},
 			update_all_domains: {
 				options: {
 					updateDomains: true
 				},
-				src: [ '*.php', '**/*.php', '!\.git/**/*', '!bin/**/*', '!node_modules/**/*', '!tests/**/*' ]
+				src: ['*.php', '**/*.php', '!\.git/**/*', '!bin/**/*', '!node_modules/**/*', '!tests/**/*', '!vendor/**/*.php']
 			}
 		},
 
 		wp_readme_to_markdown: {
-			your_target: {
+			plugin: {
 				files: {
 					'README.md': 'readme.txt'
 				}
@@ -31,9 +31,9 @@ module.exports = function( grunt ) {
 			target: {
 				options: {
 					domainPath: '/languages',
-					exclude: [ '\.git/*', 'bin/*', 'node_modules/*', 'tests/*' ],
-					mainFile: 'am-challenge-three.php',
-					potFilename: 'am-challenge-three.pot',
+					exclude: ['\.git/*', 'bin/*', 'node_modules/*', 'tests/*', 'vendor/*'],
+					mainFile: 'system-report.php',
+					potFilename: 'system-report.pot',
 					potHeaders: {
 						poedit: true,
 						'x-poedit-keywordslist': true

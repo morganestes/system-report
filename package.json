@@ -1,9 +1,9 @@
 {
-  "name": "@morganestes/am-challenge-three",
+  "name": "@morganestes/system-report",
   "version": "0.1.0",
   "main": "Gruntfile.js",
   "author": "Morgan Estes",
-  "repository": "git@github.com:morganestes/shiny-funicular.git",
+  "repository": "git@github.com:morganestes/system-report.git",
   "private": true,
   "devDependencies": {
     "grunt": "^1.0.2",
