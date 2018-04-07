@@ -13,7 +13,7 @@
   ],
   "require-dev": {
     "dealerdirect/phpcodesniffer-composer-installer": "v0.4.4",
-    "wimg/php-compatibility": "8.1.0",
+    "wimg/php-compatibility": "dev-master",
     "wp-coding-standards/wpcs": "0.14.1"
   }
 }
