@@ -9,7 +9,7 @@ module.exports = function ( grunt ) {
 
 		addtextdomain: {
 			options: {
-				textdomain: 'system-report',
+				textdomain: 'morgan-am-system-report',
 			},
 			update_all_domains: {
 				options: {
@@ -32,8 +32,8 @@ module.exports = function ( grunt ) {
 				options: {
 					domainPath: '/languages',
 					exclude: ['\.git/*', 'bin/*', 'node_modules/*', 'tests/*', 'vendor/*'],
-					mainFile: 'system-report.php',
-					potFilename: 'system-report.pot',
+					mainFile: 'morgan-am-system-report.php',
+					potFilename: 'morgan-am-system-report.pot',
 					potHeaders: {
 						poedit: true,
 						'x-poedit-keywordslist': true

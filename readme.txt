@@ -1,4 +1,4 @@
-=== System Report ===
+=== Morgan's AM System Report ===
 Contributors: morganestes
 Donate link: https://morganestes.com/donate
 Tags: system info
