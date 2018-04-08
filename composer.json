@@ -14,9 +14,16 @@
       "email": "morgan.estes@gmail.com"
     }
   ],
+  "require": {},
   "require-dev": {
     "dealerdirect/phpcodesniffer-composer-installer": "v0.4.4",
     "wimg/php-compatibility": "dev-master",
     "wp-coding-standards/wpcs": "0.14.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "MorganEstes\\SystemReport\\": ["src/"]
+    },
+    "files": ["src/functions.php"]
   }
 }
