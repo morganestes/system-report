@@ -12,4 +12,4 @@ function foo() {
 	return 'bar';
 }
 
-add_action( 'admin_init', [ __NAMESPACE__ . '\\Settings', 'runner' ] );
+\add_action( 'admin_init', [ __NAMESPACE__ . '\\Settings', 'runner' ] );

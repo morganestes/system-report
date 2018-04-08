@@ -21,7 +21,7 @@ class Settings {
 	}
 
 	public function init() {
-		add_action( 'admin_notices', function () {
+		\add_action( 'admin_notices', function () {
 			?>
 			<div class="notice notice-info is-dismissible">
 				<p><?php esc_html_e( 'Hi from Morgan\'s System Reports!', 'morgan-am-system-report' ); ?>
