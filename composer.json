@@ -1,9 +1,12 @@
 {
   "name": "morganestes/system-report",
   "description": "WordPress plugin for displaying system info.",
-  "type": "wordpress-plugin",
+  "version": "0.1.0",
   "minimum-stability": "dev",
   "prefer-stable": true,
+  "type": "wordpress-plugin",
+  "homepage": "https://github.com/morganestes/system-report",
+
   "license": "GPL-3.0",
   "authors": [
     {
