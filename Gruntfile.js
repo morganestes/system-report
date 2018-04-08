@@ -1,4 +1,4 @@
-module.exports = function( grunt ) {
+module.exports = function ( grunt ) {
 
 	'use strict';
 
@@ -43,10 +43,21 @@ module.exports = function( grunt ) {
 				}
 			}
 		},
+
+		phpcs: {
+			plugin: {
+				src: ['**/*.php', '!vendor/**/*.php', '!node_modules/**/*.php']
+			},
+			options: {
+				bin: 'vendor/bin/phpcs',
+			}
+		}
 	} );
 
 	grunt.loadNpmTasks( 'grunt-wp-i18n' );
 	grunt.loadNpmTasks( 'grunt-wp-readme-to-markdown' );
+	grunt.loadNpmTasks( 'grunt-phpcs' );
+
 	grunt.registerTask( 'i18n', ['addtextdomain', 'makepot'] );
 	grunt.registerTask( 'readme', ['wp_readme_to_markdown'] );
 
