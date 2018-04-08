@@ -60,6 +60,7 @@ module.exports = function ( grunt ) {
 
 	grunt.registerTask( 'i18n', ['addtextdomain', 'makepot'] );
 	grunt.registerTask( 'readme', ['wp_readme_to_markdown'] );
+	grunt.registerTask( 'lint', ['phpcs'] );
 
 	grunt.util.linefeed = '\n';
 
