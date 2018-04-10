@@ -67,7 +67,7 @@ class Settings {
 				'manage_options',
 				'morgan-am-system-report',
 				[ $this, 'options_page' ],
-				'data:image/svg+xml;base64,' . base64_encode( file_get_contents( PLUGIN_PATH . '/assets/src/images/AM-Logo-Text.svg' ) )
+				'data:image/svg+xml;base64,' . $am_logo_base64
 			);
 		}
 	}
