@@ -6,7 +6,6 @@
   "prefer-stable": true,
   "type": "wordpress-plugin",
   "homepage": "https://github.com/morganestes/system-report",
-
   "license": "GPL-3.0",
   "authors": [
     {
@@ -22,8 +21,12 @@
   },
   "autoload": {
     "psr-4": {
-      "MorganEstes\\SystemReport\\": ["src/"]
+      "MorganEstes\\SystemReport\\": [
+        "src/"
+      ]
     },
-    "files": ["src/functions.php"]
+    "files": [
+      "src/functions.php"
+    ]
   }
 }

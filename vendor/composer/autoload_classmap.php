@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'MorganEstes\\SystemReport\\Settings' => $baseDir . '/src/Settings.php',
+    'MorganEstes\\SystemReport\\Settings' => $baseDir . '/src/class-settings.php',
 );

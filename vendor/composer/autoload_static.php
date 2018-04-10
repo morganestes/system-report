@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitb20d00a39369240e76fe20df96c14d3f
+class ComposerStaticInit7b3cab2b32ae5273d506331aad684a0b
 {
     public static $files = array (
         '765fe80de13e141dfb3578dbe68fe72b' => __DIR__ . '/../..' . '/src/functions.php',
@@ -25,15 +25,15 @@ class ComposerStaticInitb20d00a39369240e76fe20df96c14d3f
     );
 
     public static $classMap = array (
-        'MorganEstes\\SystemReport\\Settings' => __DIR__ . '/../..' . '/src/Settings.php',
+        'MorganEstes\\SystemReport\\Settings' => __DIR__ . '/../..' . '/src/class-settings.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitb20d00a39369240e76fe20df96c14d3f::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitb20d00a39369240e76fe20df96c14d3f::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitb20d00a39369240e76fe20df96c14d3f::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit7b3cab2b32ae5273d506331aad684a0b::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit7b3cab2b32ae5273d506331aad684a0b::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit7b3cab2b32ae5273d506331aad684a0b::$classMap;
 
         }, null, ClassLoader::class);
     }
