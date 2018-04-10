@@ -21,9 +21,3 @@ define( __NAMESPACE__ . '\\PLUGIN_NAME', plugin_basename( __FILE__ ) );
 
 // Use Composer to autoload plugin files.
 require_once __DIR__ . '/vendor/autoload.php';
-
-// Create the settings page.
-add_action( 'init', [ new Settings(), 'init' ] );
-
-// Make the settings page menu item top-level.
-add_filter( 'morgan_am_menu_dashboard_sub', '__return_false' );
