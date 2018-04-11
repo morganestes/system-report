@@ -27,7 +27,7 @@ function get_latest_wp_versions() {
 	$versions = json_decode( $response );
 
 	if ( empty ( $versions->offers ) ) {
-		return new \WP_Error( 'no_data', __( 'Could not get version info from WP.org API' ), [
+		return new \WP_Error( 'no_data', __( 'Could not get version info from WP.org API', 'morgan-am-system-report' ), [
 			'request'  => $request,
 			'response' => $response,
 		] );
