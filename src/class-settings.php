@@ -80,6 +80,8 @@ class Settings {
 	public function options_page() {
 		?>
 		<h2><?php esc_html_e( 'System Report', 'morgan-am-system-report' ); ?></h2>
+			<?php show_versions_list_table(); ?>
 		<?php
 	}
+
 }
