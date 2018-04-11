@@ -35,8 +35,7 @@
       ]
     },
     "files": [
-      "src/functions.php",
-      "includes/wp-cache-remember/wp-cache-remember.php"
+      "src/functions.php"
     ]
   }
 }
