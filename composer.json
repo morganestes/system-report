@@ -13,7 +13,16 @@
       "email": "morgan.estes@gmail.com"
     }
   ],
-  "require": {},
+  "extra": {
+    "installer-paths": {
+      "includes/{$name}/": [
+        "stevegrunwell/wp-cache-remember"
+      ]
+    }
+  },
+  "require": {
+    "stevegrunwell/wp-cache-remember": "^1.0"
+  },
   "require-dev": {
     "dealerdirect/phpcodesniffer-composer-installer": "v0.4.4",
     "wimg/php-compatibility": "dev-master",
