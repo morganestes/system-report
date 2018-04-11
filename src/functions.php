@@ -12,6 +12,120 @@ add_action( 'init', [ new Settings(), 'init' ] );
 
 // Make the settings page menu item top-level.
 add_filter( 'morgan_am_menu_dashboard_sub', '__return_false' );
+
+/**
+ * Get the latest version info from WP.org.
+ *
+ * @since 0.1.0
+ *
+ * @return mixed A collection of WP version data.
+ */
+function get_latest_wp_versions() {
+	$api_url  = 'https://api.wordpress.org/core/version-check/1.7/';
+	$request  = wp_safe_remote_get( $api_url );
+	$response = wp_remote_retrieve_body( $request );
+	$versions = json_decode( $response );
+
+	if ( empty ( $versions->offers ) ) {
+		return new \WP_Error( 'no_data', __( 'Could not get version info from WP.org API' ), [
+			'request'  => $request,
+			'response' => $response,
+		] );
+	}
+
+	return $versions->offers;
+}
+
+/**
+ * Get cached version of report data.
+ *
+ * @since 0.1.0
+ * @uses \wp_cache_remember()
+ * @uses \wp_cache_delete()
+ *
+ * @return array Report data, or empty array if there's an error.
+ */
+function get_report_data() {
+	$cache_key   = 'version_check_data';
+	$cache_group = 'morgan-am-system-report';
+	$data        = wp_cache_remember( $cache_key,
+		__NAMESPACE__ . '\\generate_report_data',
+		$cache_group,
+		DAY_IN_SECONDS );
+
+	// Don't cache errors.
+	if ( is_wp_error( $data ) ) {
+		wp_cache_delete( $cache_key, $cache_group );
+		return [];
+	}
+
+	return $data;
+}
+
+/**
+ * Generate system report data for display.
+ *
+ * @since 0.1.0
+ *
+ * @return array|\WP_Error A collection of version data, or error object if they can't be calculated.
+ */
+function generate_report_data() {
+	$wp_latest_versions = get_latest_wp_versions();
+
+	if ( is_wp_error( $wp_latest_versions ) ) {
+		return $wp_latest_versions;
+	}
+
+	$wp_current = $wp_latest_versions[0];
+
+	global $wpdb, $wp_version;
+
+	/* Include an unmodified $wp_version. */
+	include ABSPATH . WPINC . '/version.php';
+
+	$yes = _x( 'yes', 'affirmative', 'morgan-am-system-report' );
+	$no  = _x( 'no', 'negative', 'morgan-am-system-report' );
+
+	$report_data = [
+		'wp_version'    => [
+			'title'                 => __( 'WordPress', 'morgan-am-system-report' ),
+			'current'               => $wp_version,
+			'recommended'           => $wp_current->version,
+			'meets_recommendations' => version_compare( $wp_version, $wp_current->version, 'ge' ) ? $yes : $no,
+		],
+		'php_version'   => [
+			'title'                 => __( 'PHP', 'morgan-am-system-report' ),
+			'current'               => phpversion(),
+			'recommended'           => $wp_current->php_version,
+			'meets_recommendations' => version_compare( phpversion(), $wp_current->php_version, 'ge' ) ? $yes : $no,
+
+		],
+		'mysql_version' => [
+			'title'                 => __( 'MySQL', 'morgan-am-system-report' ),
+			'current'               => $wpdb->db_version(),
+			'recommended'           => $wp_current->mysql_version,
+			'meets_recommendations' => version_compare( $wpdb->db_version(), $wp_current->mysql_version, 'ge' ) ? $yes : $no,
+		],
+	];
+
+	return $report_data;
+}
+
+/**
+ * Generate the markup to display the versions list table.
+ *
+ * @since 0.1.0
+ */
+function show_versions_list_table() {
+	$testListTable = new Details_List();
+	$testListTable->prepare_items();
+	?>
+	<div class="wrap">
+		<?php $testListTable->display(); ?>
+	</div>
+	<?php
+}
+
 /**
  * Get the Awesome Motive logo for use in the plugin.
  *
