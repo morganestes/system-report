@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Morgan's AM System Report 0.1.0\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/morgan-am-system-report\n"
-"POT-Creation-Date: 2018-04-08 18:20:16+00:00\n"
+"POT-Creation-Date: 2018-04-11 02:38:25+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,8 +25,45 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n1.0.2\n"
 
-#: src/Settings.php:35
-msgid "Morgan's System Report"
+#: src/class-details-list.php:59
+msgid "Name"
+msgstr ""
+
+#: src/class-details-list.php:60
+msgid "Current Version"
+msgstr ""
+
+#: src/class-details-list.php:61
+msgid "Recommended Version"
+msgstr ""
+
+#: src/class-details-list.php:62
+msgid "Meets Recommendations"
+msgstr ""
+
+#: src/class-details-list.php:97
+msgid "Version Checks List Table"
+msgstr ""
+
+#: src/class-settings.php:56 src/class-settings.php:64
+#: src/class-settings.php:82
+msgid "System Report"
+msgstr ""
+
+#: src/functions.php:30
+msgid "Could not get version info from WP.org API"
+msgstr ""
+
+#: src/functions.php:91
+msgid "WordPress"
+msgstr ""
+
+#: src/functions.php:97
+msgid "PHP"
+msgstr ""
+
+#: src/functions.php:104
+msgid "MySQL"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
@@ -49,7 +86,17 @@ msgstr ""
 msgid "https://morganestes.com/"
 msgstr ""
 
-#: src/Settings.php:36
+#: src/class-settings.php:57 src/class-settings.php:65
 msgctxt "menu title"
 msgid "System Report"
+msgstr ""
+
+#: src/functions.php:86
+msgctxt "affirmative"
+msgid "yes"
+msgstr ""
+
+#: src/functions.php:87
+msgctxt "negative"
+msgid "no"
 msgstr ""
