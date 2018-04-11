@@ -14,3 +14,5 @@ Displays system info in the WP Admin dashboard.
 
 = 0.1.0 =
 * Development version.
+* Add admin page as main page or a sub-page of Dashboard.
+* Show basic version info as a list table.
