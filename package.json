@@ -1,6 +1,6 @@
 {
   "name": "@morganestes/system-report",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "Gruntfile.js",
   "author": "Morgan Estes",
   "repository": "git@github.com:morganestes/system-report.git",
