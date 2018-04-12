@@ -13,6 +13,8 @@ add_action( 'init', [ new Settings(), 'init' ] );
 // Make the settings page menu item top-level.
 add_filter( 'morgan_am_menu_dashboard_sub', '__return_false' );
 
+add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\\load_scripts' );
+
 /**
  * Get the latest version info from WP.org.
  *
@@ -56,6 +58,7 @@ function get_report_data() {
 	// Don't cache errors.
 	if ( is_wp_error( $data ) ) {
 		wp_cache_delete( $cache_key, $cache_group );
+
 		return [];
 	}
 
@@ -146,4 +149,29 @@ function get_am_logo_encoded() {
 	$logo = (string) apply_filters( 'morgan_am_logo', $svg_base64 );
 
 	return sprintf( 'data:image/svg+xml;base64,%s', $logo );
+}
+
+/**
+ * Store the column header text for reuse.
+ *
+ * @since 0.2.0
+ *
+ * @return array The collection of list table header columns.
+ */
+function get_version_header_cols() {
+	$cols = [
+		'title'                 => _x( 'Name', 'column name', 'morgan-am-system-report' ),
+		'current'               => _x( 'Current Version', 'column name', 'morgan-am-system-report' ),
+		'recommended'           => _x( 'Recommended Version', 'column name', 'morgan-am-system-report' ),
+		'meets_recommendations' => _x( 'Meets Recommendations', 'column name', 'morgan-am-system-report' ),
+	];
+
+	/**
+	 * Filter the header columns.
+	 *
+	 * @since 0.2.0
+	 *
+	 * @param array $cols Columns in the format $id => $text.
+	 */
+	return (array) apply_filters( 'morgan_am_header_cols', $cols );
 }
