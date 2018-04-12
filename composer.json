@@ -1,7 +1,7 @@
 {
   "name": "morganestes/system-report",
   "description": "WordPress plugin for displaying system info.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "minimum-stability": "dev",
   "prefer-stable": true,
   "type": "wordpress-plugin",
