@@ -94,20 +94,20 @@ function generate_report_data() {
 			'title'                 => __( 'WordPress', 'morgan-am-system-report' ),
 			'current'               => $wp_version,
 			'recommended'           => $wp_current->version,
-			'meets_recommendations' => version_compare( $wp_version, $wp_current->version, 'ge' ) ? $yes : $no,
+			'meets_recommendations' => version_compare( $wp_version, $wp_current->version ),
 		],
 		'php_version'   => [
 			'title'                 => __( 'PHP', 'morgan-am-system-report' ),
 			'current'               => phpversion(),
 			'recommended'           => $wp_current->php_version,
-			'meets_recommendations' => version_compare( phpversion(), $wp_current->php_version, 'ge' ) ? $yes : $no,
+			'meets_recommendations' => version_compare( phpversion(), $wp_current->php_version ),
 
 		],
 		'mysql_version' => [
 			'title'                 => __( 'MySQL', 'morgan-am-system-report' ),
 			'current'               => $wpdb->db_version(),
 			'recommended'           => $wp_current->mysql_version,
-			'meets_recommendations' => version_compare( $wpdb->db_version(), $wp_current->mysql_version, 'ge' ) ? $yes : $no,
+			'meets_recommendations' => version_compare( $wpdb->db_version(), $wp_current->mysql_version ),
 		],
 	];
 
