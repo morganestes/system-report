@@ -85,6 +85,7 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'readme', ['wp_readme_to_markdown'] );
 	grunt.registerTask( 'lint', ['phpcs'] );
 	grunt.registerTask( 'js', ['babel', 'uglify'] );
+	grunt.registerTask( 'default', ['js', 'i18n', 'readme'] );
 
 	grunt.util.linefeed = '\n';
 

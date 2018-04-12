@@ -134,7 +134,7 @@ class Settings {
 								    data-colname="{{{ morganAMSystemReport.cols.title }}}">{{ val }}
 									<button type="button" class="toggle-row">
 										<span class="screen-reader-text">
-											<?php esc_html_e( 'Show more details' ); ?>
+											<?php esc_html_e( 'Show more details', 'morgan-am-system-report' ); ?>
 										</span>
 									</button>
 								</td>
