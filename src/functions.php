@@ -42,8 +42,8 @@ function get_latest_wp_versions() {
  * Get cached version of report data.
  *
  * @since 0.1.0
- * @uses \wp_cache_remember()
- * @uses \wp_cache_delete()
+ * @uses  \wp_cache_remember()
+ * @uses  \wp_cache_delete()
  *
  * @return array Report data, or empty array if there's an error.
  */
@@ -174,4 +174,25 @@ function get_version_header_cols() {
 	 * @param array $cols Columns in the format $id => $text.
 	 */
 	return (array) apply_filters( 'morgan_am_header_cols', $cols );
+}
+
+/**
+ * Load scripts for the plugin.
+ *
+ * @since 0.2.0
+ */
+function load_scripts() {
+	$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+
+	wp_enqueue_script( 'morgan-am-system-report',
+		PLUGIN_URL . "assets/js/app{$min}.js",
+		[ 'jquery', 'wp-util' ],
+		PLUGIN_VERSION,
+		true
+	);
+
+	wp_localize_script( 'morgan-am-system-report', 'morganAMSystemReport', [
+		'data' => get_report_data(),
+		'cols' => get_version_header_cols(),
+	] );
 }
