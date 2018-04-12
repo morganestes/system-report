@@ -51,6 +51,31 @@ module.exports = function ( grunt ) {
 			options: {
 				bin: 'vendor/bin/phpcs',
 			}
+		},
+
+		babel: {
+			options: {
+				sourceMap: true,
+				"presets": ["@wordpress/default"]
+			},
+			dist: {
+				files: {
+					'assets/js/app.js': 'src/js/app.js'
+				}
+			}
+		},
+
+		uglify: {
+			options: {
+				mangle: {
+					reserved: ['jQuery', 'Backbone', '_']
+				}
+			},
+			app: {
+				files: {
+					'assets/js/app.min.js': ['assets/js/app.js']
+				}
+			}
 		}
 	} );
 
@@ -61,6 +86,7 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( 'i18n', ['addtextdomain', 'makepot'] );
 	grunt.registerTask( 'readme', ['wp_readme_to_markdown'] );
 	grunt.registerTask( 'lint', ['phpcs'] );
+	grunt.registerTask( 'js', ['babel', 'uglify'] );
 
 	grunt.util.linefeed = '\n';
 
